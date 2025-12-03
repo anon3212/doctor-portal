@@ -1,0 +1,55 @@
+
+.app-layout {
+  background-color: #f8f9fa; 
+  min-height: 100vh;
+  font-family: Arial, sans-serif; 
+  
+}
+
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 20px;
+  background-color: white; 
+  border-bottom: 1px solid #dee2e6; 
+  margin-left: 15px;
+  
+}
+.navbar-links {
+  display: flex; 
+  align-items: center;
+  gap: 20px; 
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: #6c757d; 
+  padding: 5px 0; 
+  font-size: 15px;
+  
+  
+}
+
+.navbar-links .nav-link.active {
+  color: #007bff; 
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 5px; 
+  font-weight: 700;
+  
+}
+
+.navbar-links .logout {
+  color: #6c757d; 
+  
+  margin-left: 25px; 
+  font-weight: 400;
+  
+}
+
+
+.app-main-content {
+  padding: 25px 30px;
+   
+}

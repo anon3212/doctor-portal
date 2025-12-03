@@ -1,0 +1,38 @@
+
+
+.dashboard-card {
+  background-color: rgb(248, 249, 250);
+  padding: 20px;
+  border-radius: 10px;
+  
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); 
+  height: 140px; 
+  border:2px solid gray;
+  
+}
+
+.card-icon-container {
+  
+  width: 40px;
+  height: 40px;
+  border: 2px solid #1a1b1b; 
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.card-title {
+  font-weight: 700;
+  font-size: 20px;
+  color: #292828; 
+  margin: 0;
+}
+
+.card-value {
+  font-size: 36px;
+  font-weight: 700;
+  color: #2c2a2a;
+  margin-top: 5px;
+}

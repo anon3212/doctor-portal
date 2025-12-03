@@ -1,0 +1,32 @@
+.dashboard-container h1 {
+  font-size: 28px;
+  font-weight: 800;
+  color: #221f1f;
+  margin-bottom: 25px;
+}
+
+
+.dashboard-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 25px;
+  margin-bottom: 30px;
+  color: rgba(88, 88, 90, 0.877);
+}
+
+
+.schedule-section {
+  background-color: rgb(244, 245, 247);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(51, 50, 50, 0.05); 
+  border:2px solid gray;
+}
+
+.schedule-section h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #222121;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
