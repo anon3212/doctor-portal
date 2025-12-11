@@ -1,32 +1,303 @@
-.dashboard-container h1 {
-  font-size: 28px;
-  font-weight: 800;
-  color: #221f1f;
-  margin-bottom: 25px;
+/* --- Global Variables and Resets --- */
+/* These variables define the color scheme from Picture 2 */
+:root {
+    --primary-blue: #007bff; /* Active selection, Search button */
+    --accent-blue: #0056b3;  /* Darker Blue for hover */
+    --logout-red: #dc3545; /* Red/Orange color for the Logout button */
+    --save-green: #28a745; /* Green color for the Save button */
+    --border-color: #ccc; /* Light border lines */
+    --input-border-color: #e0e0e0;
+    --light-gray-bg: #f8f9fa; /* Background color for the main form panel */
+    --sidebar-bg: white; /* Background for the patient list */
+    --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.doctor-dashboard-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--light-gray-bg);
+}
+
+/* --- Header Styling (Top Bar) --- */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: white;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.header-info h1 {
+    font-size: 20px; /* Reduced size for clean header */
+    font-weight: 600;
+    margin: 0;
+    color: #333;
+}
+
+.welcome-text {
+    font-size: 14px;
+    color: #6c757d;
+    margin: 0;
+}
+
+.specialty {
+    font-weight: bold;
+    color: var(--primary-blue);
+}
+
+.logout-btn {
+    /* Styles match the red/orange button in Picture 2 */
+    background-color: var(--logout-red); 
+    color: white;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.logout-btn:hover {
+    background-color: #c82333;
 }
 
 
-.dashboard-cards-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); 
-  gap: 25px;
-  margin-bottom: 30px;
-  color: rgba(88, 88, 90, 0.877);
+/* --- Main Two-Column Layout --- */
+.main-content-layout {
+    display: flex;
+    flex: 1; /* Allows it to take up the remaining height */
+}
+
+/* --- Left Column (Consultations Sidebar) Styling --- */
+.consultations-sidebar {
+    width: 250px; 
+    background-color: var(--sidebar-bg); 
+    border-right: 1px solid var(--border-color);
+    padding: 20px 0;
+}
+
+.sidebar-title {
+    font-size: 18px;
+    font-weight: 600;
+    padding: 0 20px 10px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.consultations-list {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Style for individual consultation items */
+.schedule-item {
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.1s;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.schedule-item:hover {
+    background-color: var(--light-gray-bg);
+}
+
+.schedule-item.active {
+    /* Key style for the selected patient */
+    background-color: var(--primary-blue);
+    color: white;
+    font-weight: 500;
+}
+
+.schedule-item .patient-name {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.schedule-item .appointment-time {
+    margin: 0;
+    font-size: 12px;
+    opacity: 0.9;
+}
+
+.schedule-item.active .appointment-time {
+    opacity: 1; 
 }
 
 
-.schedule-section {
-  background-color: rgb(244, 245, 247);
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(51, 50, 50, 0.05); 
-  border:2px solid gray;
+/* --- Right Column (Patient Record Form Panel) Styling --- */
+.patient-record-panel {
+    flex-grow: 1; 
+    padding: 20px 30px;
+    background-color: var(--light-gray-bg);
 }
 
-.schedule-section h2 {
-  font-size: 20px;
-  font-weight: 700;
-  color: #222121;
-  margin-top: 0;
-  margin-bottom: 15px;
+/* Base style for all form/info boxes */
+.patient-info-box,
+.search-records-box,
+.diagnosis-box,
+.section-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: var(--box-shadow);
+    margin-bottom: 20px;
+}
+
+.patient-info-box h3,
+.search-records-box h3,
+.diagnosis-box h3,
+.section-box h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 16px; /* Slightly smaller headings for form sections */
+    color: #333;
+    font-weight: 600;
+}
+
+/* Patient Info Box Layout */
+.patient-info-details {
+    display: flex;
+    gap: 30px;
+}
+
+.patient-info-details p {
+    margin: 5px 0;
+    font-size: 15px;
+}
+
+/* Search Records Styling */
+.search-controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.date-input {
+    padding: 8px 10px;
+    border: 1px solid var(--input-border-color);
+    border-radius: 4px;
+    flex-grow: 1;
+    max-width: 200px;
+}
+
+.search-btn {
+    background-color: var(--primary-blue);
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.clear-btn {
+    background-color: #6c757d; /* Gray color for Clear button */
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+/* Diagnosis Notes Styling */
+.diagnosis-box textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--input-border-color);
+    border-radius: 4px;
+    resize: vertical;
+    box-sizing: border-box; 
+    min-height: 100px;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.diagnosis-box .required {
+    color: var(--logout-red);
+    font-weight: normal;
+}
+
+/* Table Styling for Prescriptions and Procedures */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+}
+
+.data-table th,
+.data-table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 14px;
+}
+
+.data-table th {
+    background-color: var(--light-gray-bg);
+    font-weight: 500;
+    color: #555;
+    border-bottom: 2px solid var(--input-border-color);
+}
+
+.data-table td input {
+    width: 95%;
+    padding: 5px;
+    border: 1px solid var(--input-border-color); 
+    border-radius: 3px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+/* Add Buttons */
+.add-btn {
+    background-color: #f0f8ff; /* Very light blue background */
+    color: var(--primary-blue);
+    padding: 8px 15px;
+    border: 1px solid var(--primary-blue);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+    font-size: 14px;
+    font-weight: 500;
+    display: block; /* Make it a block element to control width/margin */
+    width: 180px;
+    margin: 10px 0 0 auto; /* Align to the right of the table */
+}
+
+.add-btn:hover {
+    background-color: var(--primary-blue);
+    color: white;
+}
+
+/* Save Button Styling */
+.save-container {
+    display: flex;
+    justify-content: center; /* Center the save button at the bottom */
+    margin-top: 30px;
+    padding: 20px 0;
+}
+
+.save-medical-record-btn {
+    /* Styles match the large, central Save Medical Record button */
+    background-color: #6c757d; /* Using a neutral gray/green to match common form buttons */
+    color: white;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s;
+    width: 100%; /* Make it full width of its container */
+    max-width: 500px;
+}
+
+.save-medical-record-btn:hover {
+    background-color: #5a6268;
 }

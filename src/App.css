@@ -1,55 +1,93 @@
-
-.app-layout {
-  background-color: #f8f9fa; 
-  min-height: 100vh;
-  font-family: Arial, sans-serif; 
-  
-}
-
-
+/* Existing navbar styles (assuming you have these) */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 25px 20px;
-  background-color: white; 
-  border-bottom: 1px solid #dee2e6; 
-  margin-left: 15px;
-  
+  padding: 1rem;
+  background-color: #f8f9fa; /* Example background */
+  border-bottom: 1px solid #ddd;
+  position: relative;
 }
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
 .navbar-links {
-  display: flex; 
+  display: flex;
   align-items: center;
-  gap: 20px; 
+  gap: 1rem;
 }
 
-.navbar-links a {
+.nav-link {
   text-decoration: none;
-  color: #6c757d; 
-  padding: 5px 0; 
-  font-size: 15px;
-  
-  
+  color: #333;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s;
 }
 
-.navbar-links .nav-link.active {
-  color: #007bff; 
-  border-bottom: 2px solid #007bff;
-  padding-bottom: 5px; 
-  font-weight: 700;
-  
+.nav-link:hover {
+  background-color: #e9ecef;
 }
 
-.navbar-links .logout {
-  color: #6c757d; 
-  
-  margin-left: 25px; 
-  font-weight: 400;
-  
+.nav-link.active {
+  background-color: #007bff;
+  color: white;
 }
 
+.logout {
+  color: #dc3545;
+}
 
-.app-main-content {
-  padding: 25px 30px;
-   
+/* New styles for hamburger menu */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 4px; /* Space between bars */
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  transition: 0.3s; /* Smooth animation */
+}
+
+/* Hamburger menu container - hidden by default, slides in when open */
+.hamburger-menu {
+  position: absolute;
+  top: 100%; /* Position below navbar */
+  right: 0;
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transform: translateY(-100%); /* Start hidden above */
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease; /* Slide and fade animation */
+  z-index: 1000; /* Ensure it appears above other content */
+}
+
+/* When open, show the menu */
+.hamburger-menu.open {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Responsive: On mobile, hide full nav links and show hamburger by default */
+@media (max-width: 768px) {
+  .navbar-links .nav-link:not(.logout) { /* Hide Dashboard and others except logout */
+    display: none;
+  }
+  .hamburger {
+    display: flex; /* Always show hamburger on mobile */
+  }
 }

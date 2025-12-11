@@ -9,7 +9,7 @@ const mockPatientsData = [
     { id: 'MOCK_103', name: 'Elias Thorne (MOCK)', dob: '1992-11-20', doctorId: 'DOC_123' },
 ];
 
-export async function getPatients(doctorId) {
+export async function getpatients(doctorId) {
     if (USE_MOCK_DATA) {
         console.log(`[MOCK API] Returning mock data for doctor: ${doctorId}`);
         await new Promise(resolve => setTimeout(resolve, 500)); 
