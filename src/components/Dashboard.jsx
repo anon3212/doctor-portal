@@ -3,12 +3,14 @@ import '../App.css';
 import './Dashboard.css'; 
 
 // Endpoints are set correctly based on your API Gateway resources
+const CURRENT_DOCTOR_ID = 'DOC_123';
 const API_ENDPOINT = 'https://n2yd9e2b84.execute-api.ap-southeast-1.amazonaws.com/v1/records';
-const GET_PATIENTS_ENDPOINT = 'https://n2yd9e2b84.execute-api.ap-southeast-1.amazonaws.com/v1/patients'; 
+const GET_PATIENTS_ENDPOINT = `https://n2yd9e2b84.execute-api.ap-southeast-1.amazonaws.com/v1/patients?doctorId=${CURRENT_DOCTOR_ID}`; 
 
 const Dashboard = () => {
     const [appointments, setAppointments] = useState([]);
     const [selectedPatientId, setSelectedPatientId] = useState(null); 
+     
 
     const selectedPatient = appointments.find(p => p.id === selectedPatientId) || { 
         name: 'N/A', 
